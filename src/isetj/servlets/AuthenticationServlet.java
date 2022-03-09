@@ -32,11 +32,11 @@ public class AuthenticationServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		if ((log.equals("dsi")) && (password.equals("dsi"))) {
-			response.getWriter().println("Authentication réussie");
+			response.getWriter().println("<p style='color:green;'>Authentication réussie</p>");
 			
 		}
 		else {
-			response.getWriter().println("Echéc à l'authentication");
+			response.getWriter().println("<p style='color:red;'>Echéc à l'authentication</p>");
 		}
 		
 		
