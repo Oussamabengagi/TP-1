@@ -7,18 +7,18 @@
 
 </head>
 <body>
-<form>
+<form method="post" action="SearchServlet">
 <div style="background-color: #D3D3D3;">
 <table cellspacing="60">
 <tr>
-<td>Votre Recherche</td><td><input type="text"></td>
+<td>Votre Recherche</td><td><input type="text" name="sr"></td>
 
 </tr>
 <tr> <td>Moteur de recherche</td> <td>
 
-<select >
-  <option selected>Google</option>
-  <option >Yahoo</option>
+<select name="moteur">
+  <option selected value="google">Google</option>
+  <option value="yahoo" >Yahoo</option>
   
 </select>
 </td></tr>

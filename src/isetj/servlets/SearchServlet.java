@@ -6,18 +6,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.*;  
+import javax.servlet.*;  
+import javax.servlet.http.*; 
 
 /**
- * Servlet implementation class HelloWorldServlet
+ * Servlet implementation class SearchServlet
  */
-@WebServlet("/HelloWorldServlet")
-public class HelloWorldServlet extends HttpServlet {
+@WebServlet("/SearchServlet")
+public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public HelloWorldServlet() {
+    public SearchServlet() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -25,11 +29,21 @@ public class HelloWorldServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().println("<html><head><title>Sevlet de Bienvenue</title></head>");
-		response.getWriter().println("<body><h3><font color='blue'>");
-		response.getWriter().println("Hello World :) !");
-		response.getWriter().println("</font></h3></body></html>");
+
+		String sr = request.getParameter("sr");
+		String moteur = request.getParameter("moteur");
+		
+		if(moteur=="google") {
+			response.sendRedirect("https://www.google.com/search?q="+sr);  
+
+			
+		}
+		else {
+			response.sendRedirect("https://search.yahoo.com/search?p="+sr); 
+			
+
+		}
+		
 		
 		
 	}
