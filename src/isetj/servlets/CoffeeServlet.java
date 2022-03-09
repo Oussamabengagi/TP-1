@@ -28,12 +28,17 @@ public class CoffeeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String selection = request.getParameter("selection");
+		String txtarea = request.getParameter("txtarea");
+		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		response.getWriter().println("<html><head><title>Coffee</title></head>");
 		response.getWriter().println("<body> <img src=\"coffe.jpg\" height=\"250px\" width=\"250px\">");
 		response.getWriter().println("<br>");
-		response.getWriter().println("<p>Merci de nous avoir fait parvenir la remarque suivante concernant <strong>la qualité de servie </strong> bonne :) </p>");
+		response.getWriter().println("<p>Merci de nous avoir fait parvenir la remarque suivante concernant <strong>" + selection +"</strong>  </p>");
+		response.getWriter().println("<p>"+ txtarea + "</p>");
 		response.getWriter().println("</body></html>");
 	}
 
