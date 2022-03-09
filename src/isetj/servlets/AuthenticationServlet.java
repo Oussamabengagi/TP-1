@@ -7,18 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
- * Servlet implementation class SearchServlet
+ * Servlet implementation class AuthenticationServlet
  */
-@WebServlet("/SearchServlet")
-public class SearchServlet extends HttpServlet {
+@WebServlet("/AuthenticationServlet")
+public class AuthenticationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchServlet() {
+    public AuthenticationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,23 +26,18 @@ public class SearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String sr = request.getParameter("sr");
-		String moteur = request.getParameter("moteur");
+		// TODO Auto-generated method stub
 		
+		String log = request.getParameter("log");
+		String password = request.getParameter("password");
 		
-		if (moteur.equals("yahoo")) {
-			
-			response.sendRedirect("https://search.yahoo.com/search?p="+sr); 
-
+		if ((log.equals("dsi")) && (password.equals("dsi"))) {
+			response.getWriter().println("Authentication réussie");
 			
 		}
 		else {
-			
-			response.sendRedirect("https://www.google.com/search?q="+sr);  
-
+			response.getWriter().println("Echéc à l'authentication");
 		}
-		
 		
 		
 	}
